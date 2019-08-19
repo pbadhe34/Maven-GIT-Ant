@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="Ant_test_conditions" default="run" basedir=".">
+
+ <!--property name="data" value="source program"/-->
+
+  <!-- Run the java program -->
+  <target name="run" depends="Check Data,Check No Props,Check Conditional Property,Print">
+   
+  </target>
+
+<target name="Check Data" if="data">
+  <echo message="Check 'Data' property is present here"/>
+</target>
+
+
+<target name="Check No Props" unless="Work">
+   <echo message="Check 'Work' property absence"/>
+   <condition property="User">
+        <and>
+            <available file="build.xml"/>             
+        </and>
+   </condition>
+</target>
+
+<target name="Check Conditional Property" if="User">    
+   <echo message="The  'User' property is present"/>
+</target>
+
+
+<target name="Check OS Props">
+  <echo message="set 'OS' property"/>
+   <condition property="MyOS" value="Windows Advanced">
+       <and>
+        <os family="unix"/>
+        <not>
+          <os family="windows"/>  
+        </not>
+      </and>
+   </condition>
+</target>
+
+<target name="Print" depends="Check OS Props">    
+   <echo message="The  'MyOS' property is ${MyOS}"/>
+</target>
+
+    <target name="run_and_fail" depends="Check OS Props">
+      <echo message="Running the task"/>
+     <!--Fail if MyOs property is not present-->
+      <fail message="The property doesnot exist...." unless="MyOS"/>         
+    </target>
+
+ <target name="check_fail_condition"> 
+     <!--This will give fail message if files are not present-->
+     <fail message="Some Files are missing.">
+     <condition>
+       <not>
+         <resourcecount count="1">
+                <fileset id="fs" dir="." includes="data1.txt"/>                
+            </resourcecount>
+         </not>
+       </condition>
+    </fail>
+    <echo message="This task is successfull!"/>         
+    </target>
+
+</project>

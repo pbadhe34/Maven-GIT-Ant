@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="My_Ant_Project" default="run" basedir=".">
+
+ <target name="init"> 
+  <echo message="Init Task"/>
+</target>
+
+ 
+
+  <!-- compile  client -->
+  <target name="compile" description="Compile java program"> 
+  <echo message="Compiling the java class files"/>
+     <javac srcdir="." destdir="."
+	      deprecation="${deprecation}" debug="${debug}" debugLevel="${debugLevel}"
+	      classpath="."
+	      includes="*.java"/>
+   </target>
+
+
+
+
+  <!-- Run the java program -->
+  <target name="run" depends="init,compile">
+ <echo message="Ant built-in Properties display.."/>
+
+ <echo message="Project Name is ${ant.project.name}"/>
+ <echo message="Ant version is  ${ant.version}"/>
+<echo message="Java version is  ${ant.java.version}"/>
+
+<echo message="Ant File  is  ${ant.file}"/>
+
+<echo message="Ant Project Directory is  ${basedir}"/>
+
+<echo message="Ant installation dir is ${ant.home}"/>
+<echo message=""/>
+<echo message="Running the java class "/>
+
+    <java classname="AntClient"
+      fork="yes" failonerror="true">  
+        <classpath>
+		<pathelement path="."/>
+            <!--pathelement path="E:\data\webClasses"/-->
+      </classpath>
+    </java>
+  </target>
+</project>

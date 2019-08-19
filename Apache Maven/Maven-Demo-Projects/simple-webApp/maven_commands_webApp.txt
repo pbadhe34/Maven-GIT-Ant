@@ -1,0 +1,20 @@
+ 
+
+1. mvn archetype:create -DgroupId=com.web.app -DartifactId=simple-webapp -DpackageName=com.maven -DarchetypeArtifactId=maven-archetype-webapp
+
+2. mvn archetype:generate -DgroupId=com.web.app -DartifactId=simple-webapp -DpackageName=com.maven -DarchetypeArtifactId=maven-archetype-webapp
+
+ 3. mvn compile
+  4. mvn test
+ 5. mvn site
+ 6. mvn package
+7. mvn clean install
+ 8. mvn jetty:run
+ (Command to run  it in jetty web container)
+
+ 9. mvn tomcat:deploy
+  (To deploy the war app on tomcat)
+
+ 10..mvn tomcat:run
+ (To run the war app on tomcat web server)
+

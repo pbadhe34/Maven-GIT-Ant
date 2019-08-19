@@ -1,0 +1,12 @@
+
+mvn clean
+
+mvn compile
+
+mvn package
+
+mvn test
+
+mvn site
+
+mvn install

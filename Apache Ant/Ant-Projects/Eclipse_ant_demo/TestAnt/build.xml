@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ====================================================================== 
+     Mar 30, 2011 12:53:44 PM                                                        
+
+     myTest    
+     description
+                   
+     admin                                                                
+     ====================================================================== -->
+<project name="myTest" default="run">
+    <description>
+            description
+    </description>
+
+    <!-- ================================= 
+          target: compile              
+         ================================= -->
+    <target name="compile"  description="compile java">
+         <javac srcdir="src" destdir="bin">
+         
+         
+         </javac>
+    </target>
+
+    <!-- - - - - - - - - - - - - - - - - - 
+          target: depends                      
+         - - - - - - - - - - - - - - - - - -->
+    <target name="run" depends="compile">
+    	<java classname="User">
+    	
+    	<classpath path="bin"></classpath>
+    	</java>
+    </target>
+	
+	
+	
+	
+	
+
+</project>

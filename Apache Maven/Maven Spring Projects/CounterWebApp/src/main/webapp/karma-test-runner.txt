@@ -1,0 +1,109 @@
+ 
+Install globally
+npm install -g karma@0.12.31
+
+
+npm install -g jasmine-core karma-jasmine karma-chrome-launcher
+
+
+npm install  -g jasmine-core  
+npm install  -g karma-jasmine  
+
+npm install -g karma-chrome-launcher
+npm install  -g  karma-firefox-launcher  
+
+Install Jasmine reporter 
+
+npm install  -g jasmine-reporters  
+
+Install -g junit-reporter reporter
+
+npm install -g karma-junit-reporter  
+
+To install the karma html test reporter
+
+npm install  -g karma-htmlfile-reporter  
+npm install  -g karma-spec-reporter  
+
+
+
+Install Karma in local dir
+npm install karma --save-dev
+
+Install plugins locally that your project needs:
+
+npm install karma-jasmine karma-chrome-launcher --save-dev
+
+npm install   jasmine-core --save-dev
+npm install   karma-jasmine --save-dev
+
+npm install   karma-firefox-launcher --save-dev 
+
+Install Jasmine reporter 
+
+npm install  jasmine-reporters --save-dev
+
+Install junit-reporter reporter
+
+npm install  karma-junit-reporter --save-dev
+
+To install the html reporter
+
+npm install  karma-htmlfile-reporter --save-dev
+npm install  karma-spec-reporter --save-dev
+
+OR
+To install all dependencies in one go
+ npm install
+
+To Run Karma locally:node_modules\.bin\karma start
+
+OR set the path as 
+
+set path=%path%;node_modules/.bin;
+
+Or Run as npm
+
+ npm test
+
+OR 
+For global Karma
+
+set path=%path%;C:/Users/Prakash/AppData/Roaming/npm;
+
+The dir C:/Users/Prakash/AppData/Roaming/npm contains karam.cmd
+
+
+
+The sample configuration file karma.conf.js 
+can be generated using command : karma init
+
+To get the help about karma
+karma start --help
+
+karma  -v
+Run karma with : 
+
+node_modules/.bin/karma start test-conf.js --single-run
+karma start test-conf.js --single-run
+
+To generate the test reports in a single run
+
+karma start test-report-conf.js --log-level debug --single-run 
+
+karma start test-report-conf.js --log-level debug --single-run --reporters junit,html
+
+ 
+karma start --single-run --reporters html
+
+karma start karma.conf.js --log-level debug --single-run --reporters junit
+
+
+
+
+ 
+
+
+
+
+ 

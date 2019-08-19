@@ -1,0 +1,57 @@
+<?xml version="1.0" ?> 
+<project name="Ant_properties" default="run">
+	
+	<property file="build.properties" />
+
+      <target name="clean">
+		<delete dir="${dist.dir}" />
+		<delete dir="${build.classes.dir}" />
+	</target>
+
+	<path id="compile.classpath">
+		<fileset dir="${lib.dir}">
+			<include name="*.jar"/>
+		</fileset>
+	</path>
+	
+	<target name="init" depends="clean">
+		<mkdir dir="${build.classes.dir}"/>
+		<mkdir dir="${dist.dir}" />
+	</target>
+	
+	<target name="compile" depends="init" >
+		<javac destdir="${build.classes.dir}" debug="true" srcdir="src">
+			<classpath refid="compile.classpath"/>
+		</javac>
+	</target>
+	
+	 
+<!--Run the 'java' task by specifying the required run time classpath -->
+
+     <target name="run" depends="CreateJar">
+  
+        <java classname="User">
+
+            <!--The location of class file to be executed--> 
+            <classpath refid="compile.classpath"/>
+            
+
+            <classpath path="${build.classes.dir}"/>
+        </java>
+    </target> 
+	
+    <target name="CreateJar" depends="compile">
+      <echo message="Building the classes jar file"/>
+       <jar jarfile="${dist.dir}/${project.name}.jar">
+         <fileset dir="${build.classes.dir}">
+               <include name="*.class"/>     	   	  
+      	   
+         </fileset>
+       
+     </jar>
+ 
+	</target> 
+
+	
+	
+</project>

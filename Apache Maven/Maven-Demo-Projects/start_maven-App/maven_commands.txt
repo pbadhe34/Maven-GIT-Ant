@@ -1,0 +1,44 @@
+1.  mvn archetype:create -DgroupId=com.company.myApp -DartifactId=simpleApp -DpackageName=com.user.simple
+
+
+mvn archetype:create -DgroupId=myUsers -DartifactId=Atos_Simple -DpackageName=com.atos.user
+
+
+2.mvn archetype:generate -DgroupId=atos.app -DartifactId=MyApp -DpackageName=com.user
+
+
+
+  archetype:create  //create goal with prototype	
+  artifactId=simpleApp  //application base directory
+
+   groupId=com.company.myApp  //company package  .. default package if packageName not specified
+  packageName=com.user.simple  //application source package
+
+The 'create' goal is to create a simple project called
+Quickstart. The create goal defines a configuration property
+archetypeArtifactId which has a default value of
+'maven-archetype-quickstart'. The Quickstart archetype generates a minimal
+project shell that contains a POM and a single class
+
+
+
+ 2. mvn install  from the 'simpleApp' directory
+   (to build ,test and package the application. )
+
+ 3.. java -cp target/simpleApp-1.0-SNAPSHOT.jar com.user.simple.App 
+    (to run the class from this directory)
+
+4. mvn help:effective-pom
+   (To see the basic pom model used by the maven to manage and build the application)
+
+5. mvn package
+  (life cycle phase command to build the package after successful testing)
+
+6..mvn resources:resources compiler:compile resources:testResources compiler:testCompile surefire:test jar:jar
+(The steps involved in package phase)
+
+7.mvn site
+(Site generation and reports)
+
+8. mvn test
+  (To run the test cases)

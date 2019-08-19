@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<project name="simple" default="run" basedir=".">
+
+
+  <!-- compile  client -->
+  <target name="compile" description="Compile java program"> 
+<echo message="Compiling the java class files"/>
+     <javac srcdir="." destdir="."
+	      deprecation="${deprecation}" debug="${debug}" debugLevel="${debugLevel}"
+	      classpath="."
+	      includes="*.java"/>
+   </target>
+
+  <!-- Run the java program -->
+  <target name="run" depends="compile">
+<echo message="Running the java class "/>
+
+    <java classname="AntClient"
+      fork="yes" failonerror="true">   
+
+        <classpath>
+		<pathelement path="."/>
+        <pathelement path="."/>
+      </classpath>
+    </java>
+  </target>
+
+</project>

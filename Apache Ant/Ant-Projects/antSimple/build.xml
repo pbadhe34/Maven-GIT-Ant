@@ -1,0 +1,36 @@
+<project name="ant_simple" default="run">       
+
+   <property name="baseDir" value="."/><!--Current Dir-->
+
+   
+    
+   <!--Tasks to be executed in side the target -->
+    <target name="compileJava">
+    <!--Execute the 'javac' task by specifying the required path -->
+
+      <javac srcdir="${baseDir}"
+             destdir="${baseDir}"/> 
+    </target>
+
+  
+   <!--Copy the class files to output directory-->
+    <target name="copyClass">
+        <mkdir dir="bin"/>
+        <copy file="Test.class" todir="bin"/>         
+    </target>
+
+
+  <!--Run the 'java' task by specifying the required run time classpath -->
+
+   <target name="run" depends="compileJava,copyClass">
+  
+        <java classname="Test">
+
+            <!--The location of class file to be executed-->             
+
+            <classpath path="bin"/>
+        </java>
+    </target> 	 
+
+    
+</project>
