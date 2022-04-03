@@ -6,7 +6,7 @@
    {
    System.out.println(" ");   
     
-   System.out.println("\nThis is the new testing...!");   
+   System.out.println("\nThis is the new testing now...!");   
    }
 
 } 
